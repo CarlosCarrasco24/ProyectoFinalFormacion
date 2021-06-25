@@ -20,37 +20,32 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name="ESTACIONES")
+@Table(name = "ESTACIONES")
 public class EstacionPL implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
-	@TableGenerator(name="MI_GENERADOR",
-			table="SECUENCIAS",
-			pkColumnName="SEQ_NAME",
-			valueColumnName="SEQ_VALUE",
-			pkColumnValue="ESTACIONES",
-			allocationSize=1)
 
-	@GeneratedValue(strategy=GenerationType.TABLE, generator="MI_GENERADOR")
+	@TableGenerator(name = "MI_GENERADOR", table = "SECUENCIAS", pkColumnName = "SEQ_NAME", valueColumnName = "SEQ_VALUE", pkColumnValue = "ESTACIONES", allocationSize = 1)
+
+	@GeneratedValue(strategy = GenerationType.TABLE, generator = "MI_GENERADOR")
 	@Id
 	private int id;
-	
+
 	private String nombre;
-	
+
 	@ElementCollection
-	@OrderColumn(name="INDICE")	
-	@CollectionTable(name="DIRECCIONES", joinColumns = @JoinColumn(name="CODIGO_ESTACION"))
+	@OrderColumn(name = "INDICE")
+	@CollectionTable(name = "DIRECCIONES", joinColumns = @JoinColumn(name = "CODIGO_ESTACION"))
 	private List<DireccionPL> direccion;
-	
+
 	private double latitud;
 	private double longitud;
-	
+
 	@Temporal(TemporalType.DATE)
 	private Date fechaAlta;
-	
+
 	@Temporal(TemporalType.DATE)
 	private Date ultimaRevision;
-	
+
 	private int intervaloTiempo;
 
 	@Enumerated(EnumType.STRING)

@@ -11,14 +11,14 @@ import org.springframework.context.annotation.Configuration;
 public class DozerConfig {
 
 	@Bean
-    public DozerBeanMapper getMapper() {
-        
+	public DozerBeanMapper getMapper() {
+
 		List<String> mappingFiles = Arrays.asList("dozer-configuration-mapping.xml");
 
-        DozerBeanMapper dozerBeanMapper = new DozerBeanMapper();
-        
-        dozerBeanMapper.setMappingFiles(mappingFiles);
-        
-        return dozerBeanMapper;
-    }
+		DozerBeanMapper dozerBeanMapper = new DozerBeanMapper();
+
+		dozerBeanMapper.setMappingFiles(mappingFiles);
+
+		return dozerBeanMapper;
+	}
 }

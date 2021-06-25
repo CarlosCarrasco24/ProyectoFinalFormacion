@@ -2,17 +2,17 @@ package com.sinensia.bcnmeteo.backend.business.model;
 
 import java.io.Serializable;
 
-public class Direccion implements Serializable{
+public class Direccion implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	private String calle;
 	private String codigoPostal;
 	private String poblacion;
 	private String provincia;
 	private String pais;
-	
+
 	public Direccion() {
-		
+
 	}
 
 	public String getCalle() {

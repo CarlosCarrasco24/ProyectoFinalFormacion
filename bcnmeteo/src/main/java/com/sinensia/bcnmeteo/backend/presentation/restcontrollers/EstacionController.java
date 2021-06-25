@@ -21,18 +21,18 @@ public class EstacionController {
 
 	@Autowired
 	private EstacionServices estacionServices;
-	
+
 	@GetMapping("/estaciones")
-	public List<Estacion> getAll(){
+	public List<Estacion> getAll() {
 		return estacionServices.getAll();
 	}
-	
-	@GetMapping ("/estaciones/{id}")
+
+	@GetMapping("/estaciones/{id}")
 	public Estacion getById(@PathVariable Integer id) {
 		return estacionServices.getById(id);
 	}
-	
-	@PostMapping ("/estaciones")
+
+	@PostMapping("/estaciones")
 	public Estacion create(@RequestBody Estacion estacion) {
 		return estacionServices.create(estacion);
 	}

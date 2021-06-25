@@ -13,10 +13,9 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class SwaggerConfig {
 
 	@Bean
-    public Docket api() { 
-        return new Docket(DocumentationType.SWAGGER_2)  
-          .select()
-          .apis(RequestHandlerSelectors.basePackage("com.sinensia.bcnmeteo.backend.presentation.restcontrollers"))
-          .build();                                           
-    }
+	public Docket api() {
+		return new Docket(DocumentationType.SWAGGER_2).select()
+				.apis(RequestHandlerSelectors.basePackage("com.sinensia.bcnmeteo.backend.presentation.restcontrollers"))
+				.build();
+	}
 }

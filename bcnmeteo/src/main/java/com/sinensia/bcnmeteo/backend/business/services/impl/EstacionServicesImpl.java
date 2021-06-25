@@ -15,18 +15,16 @@ import com.sinensia.bcnmeteo.backend.integration.repositories.EstacionPLReposito
 
 @Service
 public class EstacionServicesImpl implements EstacionServices {
-	
+
 	@Autowired
 	private EstacionPLRepository estacionPlRespository;
-	
+
 	@Autowired
 	private DozerBeanMapper mapper;
 
 	@Override
 	public List<Estacion> getAll() {
-		return estacionPlRespository.findAll()
-				.stream()
-				.map(x ->mapper.map(x, Estacion.class))
+		return estacionPlRespository.findAll().stream().map(x -> mapper.map(x, Estacion.class))
 				.collect(Collectors.toList());
 	}
 
@@ -39,8 +37,8 @@ public class EstacionServicesImpl implements EstacionServices {
 
 	@Override
 	public Estacion getById(int id) {
-		Optional<EstacionPL> optional =  estacionPlRespository.findById(id);
-		return optional.isPresent()?mapper.map(optional.get(), Estacion.class):null;
+		Optional<EstacionPL> optional = estacionPlRespository.findById(id);
+		return optional.isPresent() ? mapper.map(optional.get(), Estacion.class) : null;
 	}
 
 }

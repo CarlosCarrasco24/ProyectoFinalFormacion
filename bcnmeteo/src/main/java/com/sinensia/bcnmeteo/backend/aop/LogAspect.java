@@ -11,16 +11,16 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @Aspect
 public class LogAspect {
-	
+
 	private Logger logger = LoggerFactory.getLogger(LogAspect.class);
-	
+
 	@Before(value = "execution(* com.sinensia.bcnmeteo.backend.business.services.impl.*.*(..))")
-	public void logBusiness (JoinPoint joinPoint) {
-		
+	public void logBusiness(JoinPoint joinPoint) {
+
 		String clase = joinPoint.getTarget().getClass().getSimpleName();
 		Signature signature = joinPoint.getSignature();
-		
-		logger.info("Business class: {} Method: {}" , clase, signature);	
+
+		logger.info("Business class: {} Method: {}", clase, signature);
 	}
 
 }

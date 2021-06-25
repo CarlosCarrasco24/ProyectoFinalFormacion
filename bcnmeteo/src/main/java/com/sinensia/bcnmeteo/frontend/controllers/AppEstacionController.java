@@ -14,14 +14,14 @@ import com.sinensia.bcnmeteo.backend.business.services.EstacionServices;
 @Controller
 @RequestMapping("/bcnmeteo")
 public class AppEstacionController {
-	
+
 	@Autowired
 	private EstacionServices estacionServices;
-	
+
 	@GetMapping("/estaciones")
-	public String getListado(Model model){
-		List<Estacion> estaciones=estacionServices.getAll();
-		model.addAttribute("estaciones",estaciones);
+	public String getListado(Model model) {
+		List<Estacion> estaciones = estacionServices.getAll();
+		model.addAttribute("estaciones", estaciones);
 		return "listado_estaciones";
 	}
 

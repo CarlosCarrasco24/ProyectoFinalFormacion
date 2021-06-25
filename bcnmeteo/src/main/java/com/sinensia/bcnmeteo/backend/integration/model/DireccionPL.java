@@ -5,15 +5,15 @@ import java.io.Serializable;
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class DireccionPL implements Serializable{
+public class DireccionPL implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	private String calle;
 	private String codigoPostal;
 	private String poblacion;
 	private String provincia;
 	private String pais;
-	
+
 	public DireccionPL() {
 
 	}
@@ -63,5 +63,5 @@ public class DireccionPL implements Serializable{
 		return "DireccionPL [calle=" + calle + ", codigoPostal=" + codigoPostal + ", poblacion=" + poblacion
 				+ ", provincia=" + provincia + ", pais=" + pais + "]";
 	}
-	
+
 }

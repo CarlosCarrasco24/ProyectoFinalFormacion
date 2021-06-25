@@ -4,10 +4,9 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-
-public class Estacion implements Serializable{
+public class Estacion implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	private int id;
 	private String nombre;
 	private List<Direccion> direccion;
@@ -17,9 +16,9 @@ public class Estacion implements Serializable{
 	private Date ultimaRevision;
 	private int intervaloTiempo;
 	private Estado estado;
-	
+
 	public Estacion() {
-		
+
 	}
 
 	public int getId() {
