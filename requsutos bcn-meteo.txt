@@ -1,0 +1,70 @@
+===================
+Prototipo BCN-Meteo
+===================
+
+El ayuntamiento de Barcelona va a instalar una serie de estaciones metereologicas en diferentes puntos de la ciudad. Cada estación recoge datos cada x tiempo y los envía a un servidor.
+
+Cada estación tiene...
+
+1.- Identificador numérico (el sistema otorga un id automático cuando se da de alta una estación)
+2.- Nombre
+3.- Dirección (calle, código postal, población, provincia y país)
+4.- Geolocalización (longitud y latitud)
+5.- Fecha de alta
+6.- Fecha de ultima revisión
+7.- Intervalo de tiempo para el envío de datos al servidor (en minutos)
+8.- Estado (OPERATIVA, MANTENIMIENTO, BAJA)
+
+El proyecto consta de trespartes. Una parte REST, una aplicación con JSP y pruebas de la capa de integración (opcional)
+
+==============
+1) Parte REST
+==============
+
+La API REST, a partir de un path común, deberá tener los siguientes end-points:
+
+path común: /bcnmeteo/api/v1
+
+GET	/estaciones
+GET	/estaciones/{id}
+POST	/estaciones
+
+==================
+2) Aplicación JSP
+==================
+
+La aplicación deberá disponer de las siguientes páginas:
+
+/bcnmeteo/app/home (página de bienvenida)
+/bcnmeteo/app/listado-estaciones (página JSP que mediante JSTL nos muestra una tabla con las estaciones)
+
+
+================================================
+3) Test de la capa de integración (opcional)
+================================================
+
+La aplicación hace un test de los repositorios. 
+
+
+Consideraciones técnicas
+========================
+
+- Se desarrollará a partir de un microservicio de Spring Boot que se puede descargar de GitHub o copiar de la carpeta comnpartida Z
+- El proyecto base ya incluye las estructura de paquetes. 
+- Vamos a utilizar las convención de nombres que hemos aplicado en todos nuestros proyectos y prácticas.
+- El proyecto base incluye todas las dependencias en el pom.xml y ficheros de configuración para poder:
+
+	- mapear entre modelos
+	- disponer de Swagger
+	- disponer de AOP
+	- disponer de JSP y JSTL
+
+- El backend tendrá dos capas (integration y business)
+- No utilizad generación de DDL automática por parte de Hibernate! Vamos a crear los scripts de DDL y DML (schema.sql y data.sql) tal como lo hemos venido haciendo. 
+- Los datos de ejemplo tienen que ser de calidad y pensando en posibles test de la capa de integración.
+- La aplicación debe generar logs (gestionado todo desde AOP) para cada ejecución de cualquier método de la capa de business.
+- Está permitido usar Bootstrap en las páginas JSP y aplicar CSS si lo considerais necesario.
+
+
+
+
