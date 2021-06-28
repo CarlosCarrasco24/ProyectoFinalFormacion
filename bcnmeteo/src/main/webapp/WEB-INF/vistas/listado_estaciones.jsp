@@ -17,36 +17,33 @@
 			<tr>
 				<th>C&oacute;digo</th>
 				<th>Nombre</th>
-				<th style="text-align: center;">Direcci&oacute;nes Monitorizadas</th>
 				<th>Latitud Estaci&oacute;n</th>
 				<th>Longitud Estaci&oacute;n</th>
 				<th>Fecha de alta</th>
 				<th>Fecha &Uacute;ltima revisi&oacute;n</th>
 				<th>Intervalo actualizaci&oacute;n</th>
 				<th>Estado</th>
-				
+				<th>Calle</th>
+				<th>C&oacute;digo Postal</th>
+				<th>Poblaci&oacute;n</th>
+				<th>Provincia</th>
+				<th>Pa&iacute;s</th>
 			</tr>
 			<c:forEach var="estacion" items="${estaciones}">
 			<tr>
 				<td>${estacion.id}</td>
 				<td>${estacion.nombre}</td>
-				<td style="text-align: left;">
-				<c:forEach var="direccion" items="${estacion.direccion}">	
-					<ul>
-						<li>${direccion.calle}</li>
-						C&oacute;digo postal: ${direccion.codigoPostal}
-						Poblac&oacute;n: ${direccion.poblacion}
-						Provincia: ${direccion.provincia}
-						Pa&iacute;s: ${direccion.pais}
-					</ul>
-				</c:forEach>
-				</td>
 				<td style="text-align: right;">${estacion.latitud}</td>
 				<td style="text-align: right;">${estacion.longitud}</td>
 				<td><fmt:formatDate value="${estacion.fechaAlta}" pattern="dd/MM/yyyy"/>
 				<td><fmt:formatDate value="${estacion.ultimaRevision}" pattern="dd/MM/yyyy"/>
 				<td style="text-align: center;">${estacion.intervaloTiempo}</td>
 				<td>${estacion.estado}</td>
+				<td>${estacion.direccion.calle}</td>
+				<td>${estacion.direccion.codigoPostal}</td>
+				<td>${estacion.direccion.poblacion}</td>
+				<td>${estacion.direccion.provincia}</td>
+				<td>${estacion.direccion.pais}</td>
 			</tr>
 			</c:forEach>
 		</table>

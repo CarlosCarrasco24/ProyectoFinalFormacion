@@ -2,18 +2,14 @@ package com.sinensia.bcnmeteo.backend.integration.model;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
-import javax.persistence.CollectionTable;
-import javax.persistence.ElementCollection;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OrderColumn;
 import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 import javax.persistence.Temporal;
@@ -32,10 +28,8 @@ public class EstacionPL implements Serializable {
 
 	private String nombre;
 
-	@ElementCollection
-	@OrderColumn(name = "INDICE")
-	@CollectionTable(name = "DIRECCIONES", joinColumns = @JoinColumn(name = "CODIGO_ESTACION"))
-	private List<DireccionPL> direccion;
+	@Embedded
+	private DireccionPL direccion;
 
 	private double latitud;
 	private double longitud;
@@ -71,11 +65,11 @@ public class EstacionPL implements Serializable {
 		this.nombre = nombre;
 	}
 
-	public List<DireccionPL> getDireccion() {
+	public DireccionPL getDireccion() {
 		return direccion;
 	}
 
-	public void setDireccion(List<DireccionPL> direccion) {
+	public void setDireccion(DireccionPL direccion) {
 		this.direccion = direccion;
 	}
 

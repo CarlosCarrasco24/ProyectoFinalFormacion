@@ -2,14 +2,13 @@ package com.sinensia.bcnmeteo.backend.business.model;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 public class Estacion implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private int id;
 	private String nombre;
-	private List<Direccion> direccion;
+	private Direccion direccion;
 	private double latitud;
 	private double longitud;
 	private Date fechaAlta;
@@ -37,11 +36,11 @@ public class Estacion implements Serializable {
 		this.nombre = nombre;
 	}
 
-	public List<Direccion> getDireccion() {
+	public Direccion getDireccion() {
 		return direccion;
 	}
 
-	public void setDireccion(List<Direccion> direccion) {
+	public void setDireccion(Direccion direccion) {
 		this.direccion = direccion;
 	}
 
